@@ -108,12 +108,12 @@ class ChartHelper:
             serie_copy.CopyFrom(serie)
             serie = serie_copy
 
-        if serie.type in ["time", "ohlc"]:
-            times = serie.times
+        if serie['type'] in ["time", "ohlc"]:
+            times = serie['times']
             start = cls.parse_start_timestamp(times=times)
             interval = cls.parse_interval_in_seconds(times=times)
 
-            for datapoint in serie.data:
+            for datapoint in serie['data']:
                 datapoint[0] = start + datapoint[0] * interval
 
         return serie
