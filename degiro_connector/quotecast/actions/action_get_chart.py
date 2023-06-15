@@ -138,7 +138,7 @@ class ChartHelper:
             chart_copy.CopyFrom(chart)
             chart = chart_copy
 
-        for serie in chart.series:
+        for serie in chart['series']:
             cls.format_serie(serie=serie, copy=False)
 
         return chart
